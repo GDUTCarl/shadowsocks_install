@@ -447,7 +447,7 @@ install_shadowsocks(){
     rm -rf ${libsodium_file} ${libsodium_file}.tar.gz
     rm -rf ${mbedtls_file} ${mbedtls_file}-gpl.tgz
 
-    clear
+    #clear
     echo
     echo -e "Congratulations, Shadowsocks-libev server install completed!"
     echo -e "Your Server IP        : \033[41;37m $(get_ip) \033[0m"
