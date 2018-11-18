@@ -253,7 +253,9 @@ pre_install(){
 
     # Set shadowsocks-libev config password
     echo "Please input password for shadowsocks-libev:"
-    read -p "(Default password: teddysun.com):" shadowsockspwd
+    #read -p "(Default password: teddysun.com):" shadowsockspwd
+    echo "Use default password blablabla"
+    shadowsockspwd=blablabla
     [ -z "${shadowsockspwd}" ] && shadowsockspwd="teddysun.com"
     echo
     echo "---------------------------"
@@ -265,8 +267,10 @@ pre_install(){
     while true
     do
     dport=$(shuf -i 9000-19999 -n 1)
-    echo -e "Please enter a port for shadowsocks-libev [1-65535]"
-    read -p "(Default port: ${dport}):" shadowsocksport
+    #echo -e "Please enter a port for shadowsocks-libev [1-65535]"
+    #read -p "(Default port: ${dport}):" shadowsocksport
+    echo "Use default port 26918"
+    shadowsocksport=26918
     [ -z "$shadowsocksport" ] && shadowsocksport=${dport}
     expr ${shadowsocksport} + 1 &>/dev/null
     if [ $? -eq 0 ]; then
@@ -290,7 +294,9 @@ pre_install(){
         hint="${ciphers[$i-1]}"
         echo -e "${green}${i}${plain}) ${hint}"
     done
-    read -p "Which cipher you'd select(Default: ${ciphers[0]}):" pick
+    #read -p "Which cipher you'd select(Default: ${ciphers[0]}):" pick
+    echo "Use default cipher type aes-256-cfb"
+    pick=7
     [ -z "$pick" ] && pick=1
     expr ${pick} + 1 &>/dev/null
     if [ $? -ne 0 ]; then
@@ -311,8 +317,8 @@ pre_install(){
     done
 
     echo
-    echo "Press any key to start...or press Ctrl+C to cancel"
-    char=`get_char`
+    echo "Star to install now..."
+    #char=`get_char`
 
     # Update System
     apt-get -y update
